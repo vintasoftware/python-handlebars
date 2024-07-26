@@ -213,7 +213,7 @@ def pick(context, name, default=None):
     try:
         return context[name]
     except (KeyError, TypeError, AttributeError):
-        if isinstance(name, basestring):
+        if isinstance(name, str):
             try:
                 exists = hasattr(context, name)
             except UnicodeEncodeError:
