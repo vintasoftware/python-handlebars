@@ -2,10 +2,10 @@ name: CI
 on:
   push:
     branches:
-      - master
+      - main
   pull_request:
     branches:
-      - master
+      - main
 
 jobs:
   build-ubuntu:
@@ -40,40 +40,6 @@ jobs:
         run: python -m coverage run tests.py
       - name: Convert coverage data to XML
         run: python -m coverage xml --include=handlebars/*.py
-      - name: Upload coverage to Codecov
-        uses: codecov/codecov-action@v3
-        with:
-          files: ./coverage.xml
-
-  build-ubuntu-old:
-    name: Python ${{ matrix.python }} on ubuntu-24.04 x64
-    runs-on: ubuntu-24.04
-    strategy:
-      matrix:
-        python:
-          - '3.3'
-    steps:
-      - uses: actions/checkout@master
-      - name: Setup deadsnakes/ppa
-        run: sudo apt-add-repository ppa:deadsnakes/ppa
-      - name: Update apt
-        run: sudo apt-get update
-      - name: Install Python ${{matrix.python}}
-        run: sudo apt-get install python${{matrix.python}}
-      - name: Install dependencies 1/3
-        run: python${{matrix.python}} -m pip install -r ./ci/requirements-01-setuptools.txt
-      - name: Install dependencies 2/3
-        run: python${{matrix.python}} -m pip install -r ./ci/requirements-02-coverage.txt
-      - name: Install dependencies 3/3
-        run: python${{matrix.python}} -m pip install -r ./ci/requirements-03-flake8.txt
-      - name: Install PyMeta3
-        run: python${{matrix.python}} -m pip install PyMeta3==0.5.1
-      - name: Lint
-        run: python${{matrix.python}} -m flake8
-      - name: Run tests
-        run: python${{matrix.python}} -m coverage run tests.py
-      - name: Convert coverage data to XML
-        run: python${{matrix.python}} -m coverage xml --include=handlebars/*.py
       - name: Upload coverage to Codecov
         uses: codecov/codecov-action@v3
         with:
