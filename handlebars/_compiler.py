@@ -23,7 +23,7 @@ import linecache
 
 import handlebars
 import handlebars._templates
-from pymeta.grammar import OMeta
+from ometa.grammar import OMeta
 
 __all__ = [
     'Compiler',

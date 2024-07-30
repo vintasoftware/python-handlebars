@@ -145,7 +145,7 @@ to a string in a helper call.
 ## Dependencies
 
 * Python 3.8+
-* PyMeta3
+* Python-OMeta
 
 ## Development
 
