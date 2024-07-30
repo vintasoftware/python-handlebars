@@ -5,3 +5,4 @@ dist/
 venv/
 MANIFEST
 .coverage
+*.egg-info
