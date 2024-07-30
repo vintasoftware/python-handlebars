@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "python-handlebars"
-version = "0.0.2"
+version = "0.0.3"
 description = 'Handlebars.js templating for Python 3'
 readme = "README.md"
 requires-python = ">=3.8"
@@ -28,7 +28,7 @@ classifiers = [
   "Programming Language :: Python :: 3.13",
 ]
 dependencies = [
-  "python-ometa>=0.5.1"
+  "python-ometa>=0.0.1"
 ]
 
 [project.urls]
